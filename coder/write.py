@@ -1,10 +1,10 @@
 AllZeichen = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","p","Q","R","S","T","U","V","W","X","Y","Z", 1,2,3,4,5,6,7,8,9,0,"!",'"',"§","$","%","&","/","(",")","=","?","`","*","+","#","-","_",":",";","<",">","|","{","}","[","]","\\","~","^","°","²","³","@","€","µ","£","'",".",","," "]
-print(len(AllZeichen))
 
-def write (inputText,key):
+def write(inputText,key):
     inputText = list(inputText.upper())
     key = list(key)
     emptyList = []
+    emptyWord = ""
     for Buchstabe in inputText:
         if Buchstabe in AllZeichen:
             index = AllZeichen.index(Buchstabe)
@@ -14,9 +14,10 @@ def write (inputText,key):
             emptyList.append(key[index]) 
         else:
             print("Fehler bei dem Buchstaben " + Buchstabe)
-    print(inputText)
-    print(emptyList)
+    emptyWord = emptyWord.join(emptyList)
+    print(emptyWord)
+    return emptyWord
 
-
-Key = "uk?:jyYelbNFZ{=[;ET-n]€c§QizvsWUMxDd#JI_)/V}tLq$go+<*pK(>HaX%RhAr!m&fOGPCSw,"
-write("Hallo",Key)
+#Test
+key = "!gDrn+1eOL_=%3PkH&aSldRVoscuY[yi4qt*;0Z§7(UJC#5mXT6/Q8fAbIv2:Nz<pM?hj9€,F@x>"
+write("ES FUNKTIONIERT schon sehr gut, aber es ist noch nicht so PERFEKT & naja", key)

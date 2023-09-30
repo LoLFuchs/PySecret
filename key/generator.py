@@ -1,5 +1,5 @@
 import string
-string.ascii_letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!§$%&/()=?@€{[]}+*#-_:,;<>'
+string.ascii_letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!§$%&/([=?@€+*#-_:,;<>1234567890'
 import random
 random.choice(string.ascii_letters)
 print(random.choice(string.ascii_letters))
