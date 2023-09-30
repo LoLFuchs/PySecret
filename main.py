@@ -1,5 +1,4 @@
 import tkinter as tk
-import sys
 from config.config import *
 
 root = tk.Tk()
