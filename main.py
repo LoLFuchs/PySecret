@@ -1,5 +1,8 @@
 import tkinter as tk
 from config.config import *
+from key.generator import *
+from coder.read import *
+from coder.write import *
 
 root = tk.Tk()
 root.title("PySecret")
@@ -29,7 +32,15 @@ settingsButton.pack()
 backButton = tk.Button(settingsFrame,text="back",command=lambda: gotoFrame(mainFrame))
 backButton.pack()
 
-ButtonList = [backButton,settingsButton]
+#--- read Frame ---
+backButton = tk.Button(settingsFrame,text="back",command=lambda: gotoFrame(readFrame))
+backButton.pack()
 
+#--- write Frame ---
+backButton = tk.Button(settingsFrame,text="back",command=lambda: gotoFrame(writeFrame))
+backButton.pack()
+
+ButtonList = [backButton,settingsButton]
+ExtraList = []
 mainFrame.pack()
 root.mainloop()
