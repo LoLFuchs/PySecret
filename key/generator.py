@@ -1,0 +1,15 @@
+import string
+string.ascii_letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!§$%&/()=?@€{[]}+*#-_:,;<>'
+import random
+random.choice(string.ascii_letters)
+print(random.choice(string.ascii_letters))
+
+key = ""
+
+while len(list(key)) < 76:
+    randomValue = random.choice(string.ascii_letters)
+    if randomValue not in list(key):
+        key += randomValue
+    else:
+        pass
+print("key: " + key)
