@@ -19,5 +19,5 @@ def write(inputText,key):
     return emptyWord
 
 #Test
-key = "!gDrn+1eOL_=%3PkH&aSldRVoscuY[yi4qt*;0Z§7(UJC#5mXT6/Q8fAbIv2:Nz<pM?hj9€,F@x>"
+key = "kpB:YE9rf*xbQyV17,2siC>?$4%=P+/zlv3j-u6OAhG[aFZ#mcd&WLHJ0X<oI_q€M;(@!NUweRSn"
 write("ES FUNKTIONIERT schon sehr gut, aber es ist noch nicht so PERFEKT & naja", key)

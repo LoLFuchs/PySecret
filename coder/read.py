@@ -14,12 +14,9 @@ def read(inputText, key):
             index = key.index(str(Buchstabe.lower()))
             emptyList.append(AllZeichen[index]) 
         else:
-            print("Fehler bei dem Buchstaben " + Buchstabe)
-            print("WRONG KEY")
             return "WRONG KEY"
 
     emptyWord = emptyWord.join(emptyList)
-    print(emptyWord)
     return emptyWord
 
 #Test
