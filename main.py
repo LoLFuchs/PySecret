@@ -24,17 +24,28 @@ frame_List = [mainFrame,readFrame,writeFrame,settingsFrame]
 def readText():
     rText = inputText.get()
     rKey = inputKey.get()
-    read(rText,rKey)
 
     outputLabel.pack()
     outputTextValue = str(read(rText,rKey))
     outputText = tk.Label(readFrame,text=outputTextValue)
     outputText.pack()
 
+def writeText():
+    wText = inputText.get()
+    wKey = inputKey.get()
+
+    outputLabel.pack()
+    outputTextValue = str(write(wText,wKey))
+    outputText = tk.Label(writeFrame,text=outputTextValue)
+    outputText.pack()
+
 def gotoFrame(newFrame):
     for frame in frame_List:
         frame.pack_forget()
     newFrame.pack()
+
+def SaveSettings():
+    gotoFrame(mainFrame)
 
 #--- Main Frame ---
 settingsButton = tk.Button(mainFrame, text="⚙️", command=lambda: gotoFrame(settingsFrame))
@@ -51,7 +62,16 @@ writeButton.pack(pady=10)
 
 #--- Settings Frame ---
 backButton = tk.Button(settingsFrame,text="back",command=lambda: gotoFrame(mainFrame))
-backButton.pack()
+backButton.pack(pady=10)
+
+StKeyText = tk.Text(settingsFrame,text="enter standart Key:")
+StKeyText.pack(pady=10)
+
+StandartKey = tk.Entry(settingsFrame)
+StandartKey.pack()
+
+
+submitSettingsButton = tk.Button(settingsFrame)
 
 #--- read Frame ---
 backButton = tk.Button(readFrame,text="back",command=lambda: gotoFrame(mainFrame))
@@ -82,7 +102,22 @@ outputText.pack_forget()
 
 #--- write Frame ---
 backButton = tk.Button(writeFrame,text="back",command=lambda: gotoFrame(mainFrame))
-backButton.pack()
+backButton.pack(pady=10)
+
+InputTextText = tk.Label(writeFrame,text="Enter Text:",font=("arial", 10))
+InputTextText.pack(pady=10)
+
+inputText = tk.Entry(writeFrame)
+inputText.pack(pady=5)
+
+submitButton = tk.Button(writeFrame,text="submit",command=lambda: writeText())
+submitButton.pack(pady=5)
+
+outputLabel = tk.Label(writeFrame, text="Output" ,font=("arial", 20))
+outputLabel.pack_forget()
+
+outputText = tk.Label(writeFrame,text=outputTextValue)
+outputText.pack_forget()
 
 ButtonList = [backButton,settingsButton]
 ExtraList = [Welcome_label]
