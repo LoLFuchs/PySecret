@@ -10,6 +10,7 @@ outputTextValue = ""
 global selectedType
 selectedType = ""
 
+
 root = tk.Tk()
 root.title("PySecret")
 root.resizable(False, False)
@@ -24,29 +25,33 @@ settingsFrame = tk.Frame(root)
 frame_List = [mainFrame,workFrame,settingsFrame]
 
 def selectType(Type):       
-    Text = inputText.get()
-    Key = inputKey.get()
+    print("Type:", Type)
+    Text = str(inputText.get())
+    Key = str(inputKey.get())
 
-    if Type == write:
-
+    if Type == "write":
         outputTextValue = str(write(Text,Key))
-    else:
+    elif Type == "read":
         outputTextValue = str(read(Text,Key))
+    else: 
+        print("ERROR")
+        exit()
     
     outputText = tk.Label(workFrame,text=outputTextValue)
     outputLabel.pack()
     outputText.pack()
 
-def gotoFrame(newFrame,*Type):
+def gotoFrame(newFrame,Type=""):
     for frame in frame_List:
         frame.pack_forget()
 
     newFrame.pack()
-
+    global selectedType
     if Type == "write":
         selectedType = "write"
     elif Type == "read":
         selectedType = "read"
+
         
 
 def SaveSettings():
