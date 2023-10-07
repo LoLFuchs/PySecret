@@ -41,6 +41,7 @@ def selectType(Type):
     outputLabel.pack()
     outputText.pack()
 
+
 def gotoFrame(newFrame,Type=""):
     for frame in frame_List:
         frame.pack_forget()
@@ -52,7 +53,11 @@ def gotoFrame(newFrame,Type=""):
     elif Type == "read":
         selectedType = "read"
 
-        
+    if newFrame == mainFrame:
+        inputKey.delete(0,tk.END)
+        inputText.delete(0,tk.END)
+
+
 
 def SaveSettings():
     gotoFrame(mainFrame)
