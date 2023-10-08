@@ -50,10 +50,14 @@ frame_List = [mainFrame,workFrame,settingsFrame]
 
 def selectType(Type):
     Text = str(inputText.get())
-    if get_default_dir() != None:
+
+    if get_default_dir() != None and get_default_dir() != "":
         Key = get_default_dir()
-    else:
+    elif str(inputKey.get()) != "" and inputKey.get() != None:
         Key = str(inputKey.get())
+    else: 
+        messagebox.showerror(title="NO KEY", message="EMPTY KEY, PLEASE ENTER A KEY")
+    
     if Text != "":
         if Type == "write":
             outputTextValue = str(write(Text,Key))
@@ -210,7 +214,7 @@ outputText = tk.Label(workFrame,text=outputTextValue)
 outputText.pack_forget()
 
 ButtonList = [setbackButton,backButton,settingsButton,readButton,writeButton,submitButton,delDefKey,submitSettingsButton,reDefKey]
-ExtraList = [Welcome_label,StKeyText,StandartKey,InputTextText,inputText,KeyText,inputKey,outputLabel,]
+ExtraList = [Welcome_label,StKeyText,StandartKey,InputTextText,inputText,KeyText,inputKey,outputLabel,outputText]
 
 mainFrame.pack()
 toggle()
