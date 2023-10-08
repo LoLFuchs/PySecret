@@ -24,16 +24,13 @@ root.resizable(False, False)
 root.geometry('500x500')
 root.eval("tk::PlaceWindow . center")
 
-#icon code 
-#TODO make icon
-"""
+
 iconDir = os.getcwd() + r"\assets\Icon.png"
 
 #set Icon
 ico = Image.open(iconDir)
-photo = ImageTk.PhotoImage(ico)
-root.wm_iconphoto(False, photo)
-"""
+ico = ImageTk.PhotoImage(ico)
+root.wm_iconphoto(False, ico)
 
 
 light_open = Image.open("assets/light_mode.png")
@@ -146,9 +143,12 @@ def gotoFrame(newFrame,Type=""):
         if get_default_dir != None and get_default_dir != "":
             inputKey = tk.Entry(workFrame, state="disabled")
             inputKey.unpack()
-    
 
-#--- Main Frame ---
+
+#               ---------- TKINTER ----------
+
+
+#                   --- Main Frame ---
 
 
 settingsButton = tk.Button(mainFrame, text="⚙️", command=lambda: gotoFrame(settingsFrame))
@@ -157,6 +157,12 @@ settingsButton.pack(pady=10, padx=10, anchor=tk.NE)
 Welcome_label = tk.Label(mainFrame, text="PySecret", font=("arial", 25))
 Welcome_label.pack(pady=10, padx=10, anchor=tk.NE)
 
+img = Image.open(iconDir)
+img = img.resize((100, 100))
+img = ImageTk.PhotoImage(img)
+picture = tk.Label(mainFrame, image=img)
+picture.pack(pady=10)
+
 readButton = tk.Button(mainFrame, text="read", command=lambda: gotoFrame(workFrame,"read"))
 readButton.pack(pady=10)
 
@@ -164,7 +170,7 @@ writeButton = tk.Button(mainFrame, text="write", command=lambda: gotoFrame(workF
 writeButton.pack(pady=10)
 
 
-#--- Settings Frame ---
+#               --- Settings Frame ---
 
 
 setbackButton = tk.Button(settingsFrame,text="back",command=lambda: gotoFrame(mainFrame))
@@ -188,7 +194,10 @@ switch.grid(column=0,row=3,pady=100)
 submitSettingsButton = tk.Button(settingsFrame,text="submit",command=lambda: SaveSettings())
 submitSettingsButton.grid(column=0,row=4)
 
-#--- work Frame ---
+
+#               --- work Frame ---
+
+
 backButton = tk.Button(workFrame,text="back",command=lambda: gotoFrame(mainFrame))
 backButton.pack(pady=10)
 
@@ -214,7 +223,7 @@ outputText = tk.Label(workFrame,text=outputTextValue)
 outputText.pack_forget()
 
 ButtonList = [setbackButton,backButton,settingsButton,readButton,writeButton,submitButton,delDefKey,submitSettingsButton,reDefKey]
-ExtraList = [Welcome_label,StKeyText,StandartKey,InputTextText,inputText,KeyText,inputKey,outputLabel,outputText]
+ExtraList = [Welcome_label,StKeyText,StandartKey,InputTextText,inputText,KeyText,inputKey,outputLabel,outputText,picture]
 
 mainFrame.pack()
 toggle()
