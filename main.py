@@ -18,7 +18,6 @@ Mode = "None"
 switch_value = not get_default_mode()
 
 
-
 root = tk.Tk()
 root.title("PySecret")
 root.resizable(False, False)
@@ -49,38 +48,27 @@ settingsFrame = tk.Frame(root)
 
 frame_List = [mainFrame,workFrame,settingsFrame]
 
-def selectType(Type):       
-    print("Type:", Type)
+def selectType(Type):
     Text = str(inputText.get())
-    Key = str(inputKey.get())
-
-    if Type == "write":
-        outputTextValue = str(write(Text,Key))
-    elif Type == "read":
-        outputTextValue = str(read(Text,Key))
-    else: 
-        print("ERROR")
-        exit()
+    if get_default_dir() != None:
+        Key = get_default_dir()
+    else:
+        Key = str(inputKey.get())
+    if Text != "":
+        if Type == "write":
+            outputTextValue = str(write(Text,Key))
+        elif Type == "read":
+            outputTextValue = str(read(Text,Key))
+        else: 
+            messagebox.showerror(title="ERROR", message="ERROR")
+            exit()
+        outputText = tk.Label(workFrame,text=outputTextValue)
+        outputLabel.pack()
+        outputText.pack()
+    else:
+        messagebox.showerror(title="NO TEXT", message="EMPTY TEXT, PLEASE ENTER A TEXT")
     
-    outputText = tk.Label(workFrame,text=outputTextValue)
-    outputLabel.pack()
-    outputText.pack()
 
-
-def gotoFrame(newFrame,Type=""):
-    for frame in frame_List:
-        frame.pack_forget()
-
-    newFrame.pack()
-    global selectedType
-    if Type == "write":
-        selectedType = "write"
-    elif Type == "read":
-        selectedType = "read"
-
-    if newFrame == mainFrame:
-        inputKey.delete(0,tk.END)
-        inputText.delete(0,tk.END)
 
 def clearDefKey():
     clear_default_dir()
@@ -128,6 +116,33 @@ def toggle():
 
         switch_value = True
 
+def insertKey(key):
+    if get_default_dir != None:
+        StandartKey.insert(0,key)
+
+def newDefKey():
+    clearDefKey()
+    insertKey(generate())
+    
+def gotoFrame(newFrame,Type=""):
+    for frame in frame_List:
+        frame.pack_forget()
+
+    newFrame.pack()
+    global selectedType
+    if Type == "write":
+        selectedType = "write"
+    elif Type == "read":
+        selectedType = "read"
+    elif newFrame == mainFrame:
+        inputKey = tk.Entry(workFrame)
+        inputKey.delete(0,tk.END)
+        inputText.delete(0,tk.END)
+    elif newFrame == workFrame:
+        if get_default_dir != None and get_default_dir != "":
+            inputKey = tk.Entry(workFrame, state="disabled")
+            inputKey.unpack()
+    
 
 #--- Main Frame ---
 
@@ -154,11 +169,14 @@ setbackButton.grid(column=0,row=0,pady=10)
 StKeyText = tk.Label(settingsFrame,text="enter standart Key:")
 StKeyText.grid(column=0,row=1,pady=10)
 
-StandartKey = tk.Entry(settingsFrame)
-StandartKey.grid(column=0,row=2)
+StandartKey = tk.Entry(settingsFrame,text="test")
+StandartKey.grid(column=0,row=2,ipadx=100)
 
 delDefKey = tk.Button(settingsFrame,text="clear",command=lambda:clearDefKey())
 delDefKey.grid(column=1,row=2)
+
+reDefKey = tk.Button(settingsFrame,text="renew",command=lambda:newDefKey())
+reDefKey.grid(column=2,row=2)
 
 switch = tk.Button(settingsFrame, bd=0, bg="white",text="Light Mode", activebackground="white", command=toggle)
 switch.grid(column=0,row=3,pady=100)
@@ -191,9 +209,10 @@ outputLabel.pack_forget()
 outputText = tk.Label(workFrame,text=outputTextValue)
 outputText.pack_forget()
 
-ButtonList = [setbackButton,backButton,settingsButton,readButton,writeButton,submitButton,delDefKey,submitSettingsButton]
+ButtonList = [setbackButton,backButton,settingsButton,readButton,writeButton,submitButton,delDefKey,submitSettingsButton,reDefKey]
 ExtraList = [Welcome_label,StKeyText,StandartKey,InputTextText,inputText,KeyText,inputKey,outputLabel,]
 
 mainFrame.pack()
 toggle()
+insertKey(get_default_dir())
 root.mainloop()
