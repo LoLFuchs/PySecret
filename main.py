@@ -125,24 +125,34 @@ def newDefKey():
     clearDefKey()
     insertKey(generate())
     
-def gotoFrame(newFrame,Type=""):
+def gotoFrame(newFrame,Type="",inputKey=None):
+
     for frame in frame_List:
         frame.pack_forget()
 
     newFrame.pack()
+
     global selectedType
+
     if Type == "write":
         selectedType = "write"
     elif Type == "read":
         selectedType = "read"
-    elif newFrame == mainFrame:
+
+    if newFrame == mainFrame:
         inputKey = tk.Entry(workFrame)
         inputKey.delete(0,tk.END)
         inputText.delete(0,tk.END)
     elif newFrame == workFrame:
-        if get_default_dir != None and get_default_dir != "":
-            inputKey = tk.Entry(workFrame, state="disabled")
-            inputKey.unpack()
+        if get_default_dir() != None and get_default_dir() != "":
+            KeyText.pack_forget()
+            inputKey.pack_forget()
+        else:
+            submitButton.pack_forget()
+            KeyText.pack(pady=20)
+            inputKey.pack(pady=5)
+            submitButton.pack(pady=5)
+
 
 
 #               ---------- TKINTER ----------
@@ -163,10 +173,10 @@ img = ImageTk.PhotoImage(img)
 picture = tk.Label(mainFrame, image=img)
 picture.pack(pady=10)
 
-readButton = tk.Button(mainFrame, text="read", command=lambda: gotoFrame(workFrame,"read"))
+readButton = tk.Button(mainFrame, text="read", command=lambda: gotoFrame(workFrame,"read",inputKey))
 readButton.pack(pady=10)
 
-writeButton = tk.Button(mainFrame, text="write", command=lambda: gotoFrame(workFrame,"write"))
+writeButton = tk.Button(mainFrame, text="write", command=lambda: gotoFrame(workFrame,"write",inputKey))
 writeButton.pack(pady=10)
 
 
