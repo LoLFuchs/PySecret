@@ -1,9 +1,8 @@
 # PySecret
 
 ## TODOS
-
- - Settings changes (color, defKey, etc.)
- - ETU programm (easy to use)
+![Progress:](https://geps.dev/progress/10)
+ - ETU programm (easy to use) 
  - change Button Layout
  - design changes
  - extras...
