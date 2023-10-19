@@ -1,5 +1,6 @@
 import tkinter as tk
 
+import pyperclip
 from tkinter import filedialog
 from tkinter import messagebox
 from config.config import *
@@ -63,6 +64,7 @@ def selectType(Type):
         else: 
             messagebox.showerror(title="ERROR", message="ERROR")
             exit()
+        pyperclip.copy(outputTextValue)    
         outputText = tk.Label(workFrame,text=outputTextValue)
         outputLabel.pack()
         outputText.pack()
@@ -143,6 +145,11 @@ def gotoFrame(newFrame,Type="",inputKey=None):
         inputKey = tk.Entry(workFrame)
         inputKey.delete(0,tk.END)
         inputText.delete(0,tk.END)
+
+        outputLabel = tk.Label(workFrame, text="Output" ,font=("arial", 20))
+        outputText = tk.Label(workFrame,text=outputTextValue)
+        outputLabel.pack_forget
+        outputText.pack_forget
     elif newFrame == workFrame:
         if get_default_dir() != None and get_default_dir() != "":
             KeyText.pack_forget()
