@@ -154,10 +154,10 @@ def gotoFrame(newFrame,Type="",inputKey=None):
         inputKey.delete(0,tk.END)
         inputText.delete(0,tk.END)
 
-        outputLabel = tk.Label(workFrame, text="Output" ,font=("arial", 20))
-        outputText = tk.Label(workFrame,text=outputTextValue)
-        outputLabel.pack_forget
-        outputText.pack_forget
+        outputLabel.pack_forget()
+        outputText.pack_forget()
+        copyOutput.pack_forget()
+        
     elif newFrame == workFrame:
         if get_default_dir() != None and get_default_dir() != "":
             KeyText.pack_forget()
@@ -167,12 +167,6 @@ def gotoFrame(newFrame,Type="",inputKey=None):
             KeyText.pack(pady=20)
             inputKey.pack(pady=5)
             submitButton.pack(pady=5)
-
-def colorOutputchange():
-    if switch_value == True:
-        outputText.config(bg="#26242f", fg="#ffffff")
-    else:
-        outputText.config(bg="white", fg="#000000")
 
 def copyToClipboard():
     pyperclip.copy(outputTextValue)
@@ -256,7 +250,6 @@ outputLabel.pack_forget()
 
 outputText = tk.Label(workFrame,text=outputTextValue)
 outputText.pack_forget()
-
 
 copyOutput = tk.Button(workFrame,text="copy to clipboard",command=lambda: copyToClipboard())
 copyOutput.pack_forget()
