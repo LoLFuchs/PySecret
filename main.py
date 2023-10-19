@@ -65,13 +65,15 @@ def selectType(Type):
             messagebox.showerror(title="ERROR", message="ERROR")
             exit()    
         
-        global outputText
-        outputText = tk.Label(workFrame,text=outputTextValue)
+        
+        #outputText = tk.Label(workFrame,text=outputTextValue)
+
+        outputText.config(text=outputTextValue)
+
         outputLabel.pack()
         outputText.pack(pady=10)
         copyOutput.pack(pady=10)
 
-        print(switch_value)
         if switch_value == False:
             outputText.config(bg="#26242f", fg="#ffffff")
         else:
