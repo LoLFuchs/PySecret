@@ -63,16 +63,24 @@ def selectType(Type):
             outputTextValue = str(read(Text,Key))
         else: 
             messagebox.showerror(title="ERROR", message="ERROR")
-            exit()
-        pyperclip.copy(outputTextValue)    
+            exit()    
+        
+        global outputText
         outputText = tk.Label(workFrame,text=outputTextValue)
         outputLabel.pack()
-        outputText.pack()
+        outputText.pack(pady=10)
+        copyOutput.pack(pady=10)
+
+        print(switch_value)
+        if switch_value == False:
+            outputText.config(bg="#26242f", fg="#ffffff")
+        else:
+            outputText.config(bg="white", fg="#000000")
+        
+        
     else:
         messagebox.showerror(title="NO TEXT", message="EMPTY TEXT, PLEASE ENTER A TEXT")
     
-
-
 def clearDefKey():
     clear_default_dir()
     StandartKey.delete(0,tk.END)
@@ -160,7 +168,16 @@ def gotoFrame(newFrame,Type="",inputKey=None):
             inputKey.pack(pady=5)
             submitButton.pack(pady=5)
 
+def colorOutputchange():
+    if switch_value == True:
+        outputText.config(bg="#26242f", fg="#ffffff")
+    else:
+        outputText.config(bg="white", fg="#000000")
 
+def copyToClipboard():
+    pyperclip.copy(outputTextValue)
+    copyOutput.configure(text="✅")
+    copyOutput.pack()
 
 #               ---------- TKINTER ----------
 
@@ -169,6 +186,7 @@ def gotoFrame(newFrame,Type="",inputKey=None):
 
 
 settingsButton = tk.Button(mainFrame, text="⚙️", command=lambda: gotoFrame(settingsFrame))
+
 settingsButton.pack(pady=10, padx=10, anchor=tk.NE)
 
 Welcome_label = tk.Label(mainFrame, text="PySecret", font=("arial", 25))
@@ -239,8 +257,14 @@ outputLabel.pack_forget()
 outputText = tk.Label(workFrame,text=outputTextValue)
 outputText.pack_forget()
 
-ButtonList = [setbackButton,backButton,settingsButton,readButton,writeButton,submitButton,delDefKey,submitSettingsButton,reDefKey]
+
+copyOutput = tk.Button(workFrame,text="copy to clipboard",command=lambda: copyToClipboard())
+copyOutput.pack_forget()
+
+ButtonList = [setbackButton,backButton,settingsButton,readButton,writeButton,submitButton,delDefKey,submitSettingsButton,reDefKey,copyOutput]
 ExtraList = [Welcome_label,StKeyText,StandartKey,InputTextText,inputText,KeyText,inputKey,outputLabel,outputText,picture]
+
+
 
 mainFrame.pack()
 toggle()
