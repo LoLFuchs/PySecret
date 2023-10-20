@@ -1,6 +1,6 @@
 # PySecret
 
-Progress: ![Progress:](https://geps.dev/progress/55)
+Progress: ![Progress:](https://geps.dev/progress/56)
 
 ## TODOS
  - ETU programm (easy to use) 

@@ -1,5 +1,4 @@
 import tkinter as tk
-
 import pyperclip
 from tkinter import filedialog
 from tkinter import messagebox
@@ -19,16 +18,15 @@ Mode = "None"
 switch_value = not get_default_mode()
 
 
+
 root = tk.Tk()
 root.title("PySecret")
 root.resizable(False, False)
 root.geometry('500x500')
 root.eval("tk::PlaceWindow . center")
 
-
-iconDir = os.getcwd() + r"\assets\Icon.png"
-
 #set Icon
+iconDir = os.getcwd() + r"\assets\Icon.png"
 ico = Image.open(iconDir)
 ico = ImageTk.PhotoImage(ico)
 root.wm_iconphoto(False, ico)
@@ -78,8 +76,6 @@ def selectType(Type):
             outputText.config(bg="#26242f", fg="#ffffff")
         else:
             outputText.config(bg="white", fg="#000000")
-        
-        
     else:
         messagebox.showerror(title="NO TEXT", message="EMPTY TEXT, PLEASE ENTER A TEXT")
     
@@ -141,7 +137,6 @@ def gotoFrame(newFrame,Type="",inputKey=None):
 
     for frame in frame_List:
         frame.pack_forget()
-
     newFrame.pack()
 
     global selectedType
@@ -159,7 +154,6 @@ def gotoFrame(newFrame,Type="",inputKey=None):
         outputLabel.pack_forget()
         outputText.pack_forget()
         copyOutput.pack_forget()
-        
     elif newFrame == workFrame:
         if get_default_dir() != None and get_default_dir() != "":
             KeyText.pack_forget()
@@ -258,7 +252,6 @@ copyOutput.pack_forget()
 
 ButtonList = [setbackButton,backButton,settingsButton,readButton,writeButton,submitButton,delDefKey,submitSettingsButton,reDefKey,copyOutput]
 ExtraList = [Welcome_label,StKeyText,StandartKey,InputTextText,inputText,KeyText,inputKey,outputLabel,outputText,picture]
-
 
 
 mainFrame.pack()
