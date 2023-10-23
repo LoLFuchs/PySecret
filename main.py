@@ -65,17 +65,20 @@ def selectType(Type):
         
         
         #outputText = tk.Label(workFrame,text=outputTextValue)
-
-        outputText.config(text=outputTextValue)
-
-        outputLabel.pack()
-        outputText.pack(pady=10)
-        copyOutput.pack(pady=10)
-
-        if switch_value == False:
-            outputText.config(bg="#26242f", fg="#ffffff")
+        print(str(outputTextValue))
+        if outputTextValue == "WRONG KEY":
+            messagebox.showerror(title="WRONG KEY", message="the key, you took is not correct, please check it")
         else:
-            outputText.config(bg="white", fg="#000000")
+            outputText.config(text=outputTextValue)
+
+            outputLabel.pack()
+            outputText.pack(pady=10)
+            copyOutput.pack(pady=10)
+
+            if switch_value == False:
+                outputText.config(bg="#26242f", fg="#ffffff")
+            else:
+                outputText.config(bg="white", fg="#000000")
     else:
         messagebox.showerror(title="NO TEXT", message="EMPTY TEXT, PLEASE ENTER A TEXT")
     
