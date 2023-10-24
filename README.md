@@ -1,6 +1,7 @@
 # PySecret
 
-First release will come when this progressbar is 100%
+First release will come when this progressbar is 100%.
+
 Progress: ![Progress:](https://geps.dev/progress/60)
 
 ## TODOS
