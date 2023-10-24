@@ -129,7 +129,7 @@ def toggle():
         switch_value = True
 
 def insertKey(key):
-    if get_default_dir != None:
+    if get_default_dir() != None and get_default_dir() != "":
         StandartKey.insert(0,key)
 
 def newDefKey():
