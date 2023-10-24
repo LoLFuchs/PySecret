@@ -175,7 +175,7 @@ def copyToClipboard():
 #               ---------- TKINTER ----------
 
 
-#                   --- Main Frame ---
+#                   --- main frame ---
 
 
 settingsButton = tk.Button(mainFrame, text="⚙️", command=lambda: gotoFrame(settingsFrame))
@@ -198,7 +198,7 @@ writeButton = tk.Button(mainFrame, text="write", command=lambda: gotoFrame(workF
 writeButton.pack(pady=10)
 
 
-#               --- Settings Frame ---
+#               --- settings frame ---
 
 
 setbackButton = tk.Button(settingsFrame,text="back",command=lambda: gotoFrame(mainFrame))
@@ -223,7 +223,7 @@ submitSettingsButton = tk.Button(settingsFrame,text="submit",command=lambda: Sav
 submitSettingsButton.grid(column=0,row=4)
 
 
-#               --- work Frame ---
+#               --- work frame ---
 
 
 backButton = tk.Button(workFrame,text="back",command=lambda: gotoFrame(mainFrame))
