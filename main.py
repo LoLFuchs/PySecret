@@ -224,6 +224,9 @@ switch.grid(column=0,row=3,pady=100)
 submitSettingsButton = tk.Button(settingsFrame,text="submit",command=lambda: SaveSettings())
 submitSettingsButton.grid(column=0,row=4)
 
+VersionLabel = tk.Label(settingsFrame, text="V.Beta")
+VersionLabel.grid(column=0,row=5,pady=60)
+
 
 #               --- work frame ---
 
@@ -256,7 +259,7 @@ copyOutput = tk.Button(workFrame,text="copy to clipboard",command=lambda: copyTo
 copyOutput.pack_forget()
 
 ButtonList = [setbackButton,backButton,settingsButton,readButton,writeButton,submitButton,delDefKey,submitSettingsButton,reDefKey,copyOutput]
-ExtraList = [Welcome_label,StKeyText,StandartKey,InputTextText,inputText,KeyText,inputKey,outputLabel,outputText,picture]
+ExtraList = [Welcome_label,StKeyText,StandartKey,InputTextText,inputText,KeyText,inputKey,outputLabel,outputText,picture,VersionLabel]
 
 
 mainFrame.pack()
