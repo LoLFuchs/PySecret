@@ -65,16 +65,17 @@ def selectType(Type):
         
         
         #outputText = tk.Label(workFrame,text=outputTextValue)
-        print(str(outputTextValue))
+        
         if outputTextValue == "WRONG KEY":
             messagebox.showerror(title="WRONG KEY", message="the key, you took is not correct, please check it")
         else:
             outputText.config(text=outputTextValue)
-
+            copyOutput.config(text="copy to clipboard")
+            
             outputLabel.pack()
             outputText.pack(pady=10)
             copyOutput.pack(pady=10)
-
+            
             if switch_value == False:
                 outputText.config(bg="#26242f", fg="#ffffff")
             else:
@@ -168,7 +169,8 @@ def gotoFrame(newFrame,Type="",inputKey=None):
             submitButton.pack(pady=5)
 
 def copyToClipboard():
-    pyperclip.copy(outputTextValue)
+    print(outputText.cget("text"))
+    pyperclip.copy(outputText.cget("text"))
     copyOutput.configure(text="✅")
     copyOutput.pack()
 
