@@ -45,7 +45,7 @@ settingsFrame = tk.Frame(root)
 frame_List = [mainFrame,workFrame,settingsFrame]
 
 def selectType(Type):
-    Text = str(inputText.get())
+    Text = str(inputText.get("1.0",'end-1c'))
 
     if get_default_dir() != None and get_default_dir() != "":
         Key = get_default_dir()
@@ -153,7 +153,7 @@ def gotoFrame(newFrame,Type="",inputKey=None):
     if newFrame == mainFrame:
         inputKey = tk.Entry(workFrame)
         inputKey.delete(0,tk.END)
-        inputText.delete(0,tk.END)
+        inputText.delete("1.0",'end-1c')
 
         outputLabel.pack_forget()
         outputText.pack_forget()
@@ -234,13 +234,13 @@ VersionLabel.grid(column=0,row=5,pady=60)
 backButton = tk.Button(workFrame,text="back",command=lambda: gotoFrame(mainFrame))
 backButton.pack(pady=10)
 
-InputTextText = tk.Label(workFrame,text="Enter Text:",font=("arial", 10))
+InputTextText = tk.Label(workFrame,text="Enter Text:",font=("arial", 15))
 InputTextText.pack(pady=10)
 
-inputText = tk.Entry(workFrame)
+inputText = tk.Text(workFrame,height=10,width=50,font=("arial", 10))
 inputText.pack(pady=5)
 
-KeyText = tk.Label(workFrame,text="Enter Key:",font=("arial", 10))
+KeyText = tk.Label(workFrame,text="Enter Key:",font=("arial", 15))
 KeyText.pack(pady=20)
 
 inputKey = tk.Entry(workFrame)
