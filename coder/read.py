@@ -1,5 +1,4 @@
-AllZeichen = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z", "1","2","3","4","5","6","7","8","9","0","!",'"',"§","$","%","&","/","(",")","=","?","`","*","+","#","-","_",":",";","<",">","|","{","}","[","]","\\","~","^","°","²","³","@","€","µ","£","'",".",","," "]
-
+AllZeichen = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '!', '§', '$', '%', '&', '/', '(', '[', '=', '?', '@', '€', '+', '*', '#', '-', '_', ':', ',', ';', '<', '>', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú', 'â', 'ê', 'î', 'ô', 'û', 'Â', 'Ê', 'Î', 'Ô', 'ß', ' ']
 
 def read(inputText, key):
     inputText = list(inputText)
@@ -20,6 +19,6 @@ def read(inputText, key):
     return emptyWord
 
 #Test
-key = ">ZQiK1TdRMU#8vu:7!*P[2eF_&n5%mjXHy-a$Ob?VCgh@l(sBf0A€LqYxwrSDGN;,Jc<9t4o/=E§"
+#key = ">ZQiK1TdRMU#8vu:7!*P[2eF_&n5%mjXHy-a$Ob?VCgh@l(sBf0A€LqYxwrSDGN;,Jc<9t4o/=E§"
 
-read("na>+l3_SOP3On&S>aDeP3>ane&>1lSx>!gn&>na>OaS>3PDe>3ODeS>aP>kn&+n_S>(>3!L!", key)
+#read("na>+l3_SOP3On&S>aDeP3>ane&>1lSx>!gn&>na>OaS>3PDe>3ODeS>aP>kn&+n_S>(>3!L!", key)

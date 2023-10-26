@@ -1,16 +1,16 @@
 import string
-string.ascii_letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!§$%&/([=?@€+*#-_:,;<>1234567890'
 import random
-random.choice(string.ascii_letters)
+string.ascii_letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!§$%&/([=?@€+*#-_:,;<>1234567890áéíóúÁÉÍÓÚâêîôûÂÊÎÔß '
+#List of sting.ascii_letters
+print(list(string.ascii_letters))
+print(len(string.ascii_letters))
 
-key = ""
-def generate(key = ""):
-    while len(list(key)) < 76:
+
+def generate(key=""):
+    while len(key) < 105:
         randomValue = random.choice(string.ascii_letters)
-        if randomValue not in list(key):
+        if randomValue not in key:
             key += randomValue
-        else:
-            pass
     print("key: " + key)
     return key
 
