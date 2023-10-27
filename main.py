@@ -133,6 +133,7 @@ def insertKey(key):
     if get_default_dir() != None and get_default_dir() != "":
         StandartKey.insert(0,key)
 
+
 def newDefKey():
     clearDefKey()
     insertKey(generate())

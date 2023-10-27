@@ -47,10 +47,10 @@ def clear_default_dir(json_file_path="config\config.json"):
     if os.path.exists(json_file_path):
         with open(json_file_path, "r") as file:
             data = json.load(file)
-        data["default_dir"] = "null"
+        data["default_dir"] = " "
     else:
         data = {
-            "default_dir": "null"
+            "default_dir": " "
         }
     with open(json_file_path, "w") as file:
         json.dump(data, file, indent=4)
