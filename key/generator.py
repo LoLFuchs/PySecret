@@ -4,7 +4,7 @@ string.ascii_letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!§$
 
 
 def generate(key=""):
-    while len(key) < len(string.ascii_letters):
+    while len(key) < 115:
         randomValue = random.choice(string.ascii_letters)
         if randomValue not in key:
             key += randomValue
