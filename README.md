@@ -10,6 +10,8 @@ Progress: ![Progress:](https://geps.dev/progress/90)
  - Build README
  - design changes
  - finish "safer-key" system
+ - build user added keys
 
 ## RECENT 
-- added new key system (testing)
+- added new key system (done)
+- add symbols 
