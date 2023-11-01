@@ -1,11 +1,14 @@
 # PySecret
 
 First release will come when this progressbar is 100%.
-
-Progress: ![Progress:](https://geps.dev/progress/82)
+Progress: ![Progress:](https://geps.dev/progress/90)
 
 ## TODOS
  - Build README
- - change Button Layout
  - design changes
- - extras...
+ - finish "safer-key" system
+ - build user added keys
+
+## RECENT 
+- added new key system (✅)
+- add symbols 
