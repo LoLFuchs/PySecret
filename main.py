@@ -225,7 +225,7 @@ switch.grid(column=0,row=3,pady=100)
 submitSettingsButton = tk.Button(settingsFrame,text="submit",command=lambda: SaveSettings())
 submitSettingsButton.grid(column=0,row=4)
 
-VersionLabel = tk.Label(settingsFrame, text="V.Beta")
+VersionLabel = tk.Label(settingsFrame, text="V1.0")
 VersionLabel.grid(column=0,row=5,pady=60)
 
 
