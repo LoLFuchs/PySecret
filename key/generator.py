@@ -8,7 +8,6 @@ def generate(key=""):
         randomValue = random.choice(string.ascii_letters)
         if randomValue not in key:
             key += randomValue   
-    print(key)
     return key
 
 generate()

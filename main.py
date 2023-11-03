@@ -170,7 +170,6 @@ def gotoFrame(newFrame,Type="",inputKey=None):
             submitButton.pack(pady=5)
 
 def copyToClipboard():
-    print(outputText.cget("text"))
     pyperclip.copy(outputText.cget("text"))
     copyOutput.configure(text="✅")
     copyOutput.pack()
