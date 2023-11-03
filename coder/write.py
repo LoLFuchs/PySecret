@@ -13,7 +13,6 @@ def write(inputText,key):
         else:
             print("Fehler bei dem Buchstaben " + Buchstabe)
     emptyWord = emptyWord.join(emptyList)
-    print(emptyWord)
     return emptyWord
 
 #Test
