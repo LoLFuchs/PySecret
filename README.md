@@ -5,7 +5,7 @@ PySecret is a fully in Python written, de-/ and encoder.
 It works with a save "key symbol system" (kss). 
 The key is a very long combination of unique charackters, so that there are unlimited combinations. 
 
-Example Key: 
+Example key: 
 ```
 jÔôäiá,_b.g(Íéó$"0rtRomÄLfJ)=w§Â°HCBÜ1íûPNQ;u &G2pYîI#c6T-ÎeVZU9l<Oay€öÁÉ8Ö74!Xx*+[3Ahú@ßâMs:W/Süê?%]zF5ÓvDdkEÚ>nÊqK
 ```
